@@ -1,4 +1,7 @@
-   ![1 1](https://user-images.githubusercontent.com/113283571/212878065-45e330ef-5398-4c06-864d-7e12078fb770.png)
+<p align="center">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/113283571/212878065-45e330ef-5398-4c06-864d-7e12078fb770.png">
+</p>
+
 
 # Crack All Types 0f Hashes in a Seconds #
 
