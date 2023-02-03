@@ -14,7 +14,7 @@
 
 - Supports MD5, SHA1, SHA256, SHA384, SHA512, SHA224.
 
-- Hash Generatorm Also Supports all Types 0f Hashs.
+- Hash Generator Also Supports all Types 0f Hashs.
 
 
 # [+] Insallation & Usage:
