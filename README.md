@@ -1,6 +1,7 @@
 <p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/113283571/212878065-45e330ef-5398-4c06-864d-7e12078fb770.png">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/113283571/216542985-c2e838aa-7624-48fe-a5f2-cfc26960d461.png">
 </p>
+
 
 
 # Crack All Types 0f Hashes in a Seconds #
@@ -11,9 +12,9 @@
 
 - Automatic hash type identification.
 
-- Supports MD5, SHA1, SHA256, SHA384, SHA512.
+- Supports MD5, SHA1, SHA256, SHA384, SHA512, SHA224.
 
-- Multi-threading
+- Hash Generatorm Also Supports all Types 0f Hashs.
 
 
 # [+] Insallation & Usage:
