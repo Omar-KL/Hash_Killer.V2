@@ -136,7 +136,7 @@ elif choice == "2":
             hash_Function = hash_Functions[hash_type]
             hash_gen = hash_Function(hash_word.encode('utf-8')).hexdigest()
             print("="*50)
-            print(color12+hash_gen)
+            print(color9+"Your hash: " +color12+ hash_gen)
             print("=" * 50)
         except KeyError:
             print("Unsupported hash type..")
