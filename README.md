@@ -51,6 +51,10 @@ https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.tx
 
 ![4](https://user-images.githubusercontent.com/113283571/216546605-386b5b11-862d-41ad-a369-ec32a8651941.png)
 
+there's Two Inputs:
+
+    - Word To Hash..
+    - The Type of Hash..
 
 
    # Hit Enter and Let The Magic Happen # 
