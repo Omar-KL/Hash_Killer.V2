@@ -16,6 +16,8 @@
 
 - Hash Generator Also Supports all Types 0f Hashs.
 
+- Generate Salted and Unsalted Hashes. 
+
 
 # [+] Insallation & Usage:
 
@@ -25,7 +27,7 @@
             
  After Install the Tool by using:
 
-        $Sudo git clone https://github.com/Omar-KL/Hash_Killer.V1.git
+        $Sudo git clone https://github.com/Omar-KL/Hash_Killer.V2.git
         
 ![2 2](https://user-images.githubusercontent.com/113283571/216544873-58dbbb01-fd27-479b-bcb2-bd25258145bf.png)
 
@@ -33,7 +35,7 @@
 
            $Python3 Hash_Killer.py
     
-# [+] For Choice 1:
+# [+] For 1:
 
 ![3](https://user-images.githubusercontent.com/113283571/216545433-8cf42a9c-9155-497c-bea1-65805e3faaef.png)
 
@@ -42,18 +44,18 @@ after runing the secript you have to Enter two Inputs:
 
     [Target Hash and The Worldlist Path] 
 
-I recommend using (rockyou.txt) list.. and you can download it from link:
+I recommend using (rockyou.txt) list.. you can download it by the link:
 
 
 https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
 
-# [2] For Choice 2:
+# [2] For 2:
 
 ![4](https://user-images.githubusercontent.com/113283571/216546605-386b5b11-862d-41ad-a369-ec32a8651941.png)
 
 there's Two Inputs:
 
-    - Word To Hash..
+    - Word to Hash..
     - The Type of Hash..
 
 
