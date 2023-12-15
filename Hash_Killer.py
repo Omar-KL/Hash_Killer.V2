@@ -1,6 +1,8 @@
 import re
 import hashlib
 from colored import fg, bg
+import base64
+import os
 
 color1 = fg(196)
 color2 = fg(20)
@@ -30,7 +32,7 @@ print(color9 + """
                 ██  ██  ██ ██      ██      ██      ██   ██ 
                 ██   ██ ██ ███████ ███████ ███████ ██   ██                                             
 
-                                                                                 """"")
+""")
 print("=" * 50)
 print("Made it By Omar-KL")
 print("Instagram: @1_k1e")
@@ -38,16 +40,14 @@ print("Youtube: https://www.youtube.com/@magician-teq")
 print("Don't use it for Illegal Purposes.. ")
 print("=" * 50)
 
-print(color12+"[1] "+color13 + "Crack All Types Of Hashes.")
-print(color12+"[2] "+color13 + "Generate Hash.")
+print(color12 + "[1] " + color13 + "Crack All Types Of Hashes.")
+print(color12 + "[2] " + color13 + "Generate Hash.")
 print(color9 + "=" * 50)
 
-choice = input(color12+"[+] "+color13+"Enter Your choice: ")
-
+choice = input(color12 + "[+] " + color13 + "Enter Your choice: ")
 
 if choice == "1":
     try:
-        # Create a dictionary of hash functions
         hash_functions = {
             "md5": hashlib.md5,
             "sha1": hashlib.sha1,
@@ -57,7 +57,6 @@ if choice == "1":
             "sha512": hashlib.sha512
         }
 
-        # Regular expressions to match the hash against known patterns
         hash_types = {
             "md5": r"^[a-f0-9]{32}$",
             "sha1": r"^[a-f0-9]{40}$",
@@ -70,23 +69,16 @@ if choice == "1":
         hash_to_check = input(color1 + "[*] Enter target hash: ")
         wordlist_path = input(color1 + "[*] Enter the path to the wordlist file: ")
 
-        # Iterate through each hash type in the hash_types dictionary
         hash_found = False
         for hash_type, regex in hash_types.items():
-            # Check if the hash matches the regular expression for the current hash type
             if re.match(regex, hash_to_check):
-                # Get the corresponding hash function from the hash_functions dictionary
                 hash_function = hash_functions[hash_type]
                 print(color8 + "=" * 50)
                 print(color11 + "The hash is likely", color10 + hash_type.upper())
                 try:
-                    # Open the wordlist
                     with open(wordlist_path, "r", encoding='utf-8') as wordlist:
-                        # Iterate through each word in the wordlist
                         for word in wordlist:
-                            # Calculate the hash of the word
                             hash_word = hash_function(word.strip().encode('utf-8')).hexdigest()
-                            # Compare the hash of the word to the target hash
                             if hash_word == hash_to_check:
                                 print(color8 + "=" * 50)
                                 print(color11 + "Found Matching Hash:", color10 + word.strip())
@@ -103,47 +95,96 @@ if choice == "1":
                     print(color6 + "=" * 50)
 
                 except PermissionError:
-                    print(color2+"File Permission denied.")
-                    print(color6+"="*50)
+                    print(color2 + "File Permission denied.")
+                    print(color6 + "=" * 50)
 
                 except IOError as e:
                     print("Error: ", e)
 
-                except:
-                    print(color3 + "An error occurred while reading the wordlist file.")
-                    print(color6 + "=" * 50)
-                    break
-
+                except Exception as e:
+                    print("Error: ", e)
 
     except Exception as e:
         print("Error: ", e)
 
 elif choice == "2":
-    try:
-        hash_word = input(color12+"[+] "+color13+"Enter your Word To Generate Hash: ")
-        hash_type = input(color12+"[+] "+color13+"Enter Hash type EX:(md5, sha-1, sha-224..etc): ")
+    print(color12 + "[1] " + color13 + "Salted Hash.. ")
+    print(color12 + "[2] " + color13 + "UnSalted Hash.. ")
+    Saltchoice = input(color12 + "[+] " + color13 + "Select Your Choice: ")
+
+    if Saltchoice == '1':
+      try:
+        def generate_salt(length=16):
+          random_bytes = os.urandom(length)
+          salt = base64.b64encode(random_bytes).decode("utf-8")
+          return salt[:length]
+
+
+        salt = generate_salt()
+
+        hash_word = input(color12 + "[+] " + color13 + "Enter your Word To Generate Hash: ")
+        hash_word_encoded = hash_word.encode("utf-8")
+        hash_type = input(color12 + "[+] " + color13 + "Enter Hash type EX:(md5, sha-1, sha-224..etc): ")
 
         hash_Functions = {
-            "md5": hashlib.md5,
-            "sha-1": hashlib.sha1,
-            "sha-224": hashlib.sha224,
-            "sha-256": hashlib.sha256,
-            "sha-384": hashlib.sha384,
-            "sha-512": hashlib.sha512,
+          "md5": hashlib.md5,
+          "sha-1": hashlib.sha1,
+          "sha-224": hashlib.sha224,
+          "sha-256": hashlib.sha256,
+          "sha-384": hashlib.sha384,
+          "sha-512": hashlib.sha512,
         }
 
         try:
-            hash_Function = hash_Functions[hash_type]
-            hash_gen = hash_Function(hash_word.encode('utf-8')).hexdigest()
-            print("="*50)
-            print(color9+"Your hash: " +color12+ hash_gen)
-            print("=" * 50)
-        except KeyError:
-            print("Unsupported hash type..")
-        except:
-            print("something went wrong, please try again..")
-    except:
-        print("something went wrong, please try again..")
+          def combine_salt_and_word(salt, word):
+            return salt + word
 
-else:
-    print("Invalid Choice, try again..")
+
+          hash_function = hash_Functions[hash_type]
+          combined_string = combine_salt_and_word(salt, hash_word_encoded.decode('utf-8'))
+          salted_hash = hash_function(combined_string.encode('utf-8')).hexdigest()
+
+          print("=" * 50)
+          print(color9 + f"Generated salt: {salt}")
+          print(color9 + "Salted Hash : " + color12 + salted_hash)
+          print("=" * 50)
+
+        except KeyError:
+          print("Unsupported hash type..")
+
+      except Exception as e:
+        print("Error: ", e)
+
+
+    elif Saltchoice == '2':
+        try:
+            hash_word = input(color12 + "[+] " + color13 + "Enter your Word To Generate Hash: ").encode('utf-8')
+            hash_type = input(color12 + "[+] " + color13 + "Enter Hash type EX:(md5, sha-1, sha-224..etc): ")
+
+            hash_Functions = {
+                "md5": hashlib.md5,
+                "sha-1": hashlib.sha1,
+                "sha-224": hashlib.sha224,
+                "sha-255": hashlib.sha256,
+                "sha-384": hashlib.sha384,
+                "sha-512": hashlib.sha512,
+            }
+
+            try:
+                hash_function = hash_Functions[hash_type]
+                hash_gen = hash_function(hash_word).hexdigest()
+                print("=" * 50)
+                print(color9 + "Your hash: " + color12 + hash_gen)
+                print("=" * 50)
+
+            except KeyError:
+                print("Unsupported hash type..")
+
+            except Exception as e:
+                print("Error: ", e)
+
+        except Exception as e:
+            print("Error: ", e)
+
+    else:
+        print("Invalid Choice, try again..")
