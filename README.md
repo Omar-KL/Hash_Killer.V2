@@ -25,9 +25,9 @@
             If you are concerned about security, please review the source code  
             and ensure that all necessary libraries are installed.
             
- After Install the Tool by using:
-
-        $Sudo git clone https://github.com/Omar-KL/Hash_Killer.V2.git
+ 
+First isntall the tool by using:
+      git clone https://github.com/Omar-KL/Hash_Killer.V2.git
         
 ![2 2](https://user-images.githubusercontent.com/113283571/216544873-58dbbb01-fd27-479b-bcb2-bd25258145bf.png)
 
