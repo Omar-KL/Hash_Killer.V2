@@ -26,7 +26,8 @@
             and ensure that all necessary libraries are installed.
             
  
-First install the tool by using:
+First, install the tool using the following command:
+
       git clone https://github.com/Omar-KL/Hash_Killer.V2.git
         
 ![2 2](https://user-images.githubusercontent.com/113283571/216544873-58dbbb01-fd27-479b-bcb2-bd25258145bf.png)
