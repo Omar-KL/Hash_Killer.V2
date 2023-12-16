@@ -188,3 +188,6 @@ elif choice == "2":
 
     else:
         print("Invalid Choice, try again..")
+
+else:
+    print("Invalid Choice, try again..")
