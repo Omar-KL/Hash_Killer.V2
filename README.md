@@ -34,7 +34,9 @@ First, install the tool using the following command:
 
  you can run the code:
 
-           $Python3 Hash_Killer.py
+            
+           cd Hash_Killer.V2
+           Python3 Hash_Killer.py
     
 # [+] For 1:
 
